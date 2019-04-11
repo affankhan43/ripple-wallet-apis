@@ -1,0 +1,5 @@
+{
+    "require": {
+        "iexbase/ripple-api": "^1.0"
+    }
+}
