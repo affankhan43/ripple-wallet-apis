@@ -14,7 +14,8 @@
 
 require_once __DIR__.'/vendor/autoload.php';
 
-$address = "asd";
+$address = "rpx9uJ4KgJTzaMZokPr95SznNJQv24JP52";
 $ripple = new \IEXBase\RippleAPI\Ripple($address);
+dump($ripple->getAccountPayments());
 
 ?>
