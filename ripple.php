@@ -20,7 +20,7 @@ $address = "rpx9uJ4KgJTzaMZokPr95SznNJQv24JP52";
 $secretKey = "shdefS9eDcFp8rAL8oGPGSqJbGSpg";
 
 $ripple = new \IEXBase\RippleAPI\Ripple($address);
-$data = $ripple->getAccountTransactionHistory(null,array("limit"=>500));
+$data = $ripple->getAccountTransactionHistory(null,array("limit"=>500,'start'=>"2019-04-11T20:48:50+00:00"));
 for ($i=0; $i < sizeof($data); $i++) { 
 	echo $i.') Hash---> '.$data[$i]['hash'];
 	echo "<br>";
@@ -32,9 +32,11 @@ for ($i=0; $i < sizeof($data); $i++) {
 	echo "<br>";
 	echo $i.') Destination---> '.$data[$i]['tx']['Destination'];
 	echo "<br>";
+	echo $i.') DestinationTag---> '.$data[$i]['tx']['DestinationTag'];
+	echo "<br>";
 	echo "<br>";
 }
-print_r(($data[0]));
+//print_r(($data[5]));
 
 // $ripple = new \IEXBase\RippleAPI\Ripple($address, $secretKey);
 // try {
