@@ -21,20 +21,22 @@ $secretKey = "shdefS9eDcFp8rAL8oGPGSqJbGSpg";
 
 $ripple = new \IEXBase\RippleAPI\Ripple($address);
 $data = $ripple->getAccountTransactionHistory(null,array("limit"=>500,'start'=>"2019-04-11T20:48:50+00:00"));
-for ($i=0; $i < sizeof($data); $i++) { 
-	echo $i.') Hash---> '.$data[$i]['hash'];
-	echo "<br>";
-	echo $i.') Date---> '.$data[$i]['date'];
-	echo "<br>";
-	echo $i.') Tx Type---> '.$data[$i]['tx']['TransactionType'];
-	echo "<br>";
-	echo $i.') Amount---> '.$data[$i]['tx']['Amount']/1000000;
-	echo "<br>";
-	echo $i.') Destination---> '.$data[$i]['tx']['Destination'];
-	echo "<br>";
-	echo $i.') DestinationTag---> '.$data[$i]['tx']['DestinationTag'];
-	echo "<br>";
-	echo "<br>";
+for ($i=0; $i < sizeof($data); $i++) {
+	if(isset($data[$i]['hash'],$data[$i]['date'],$data[$i]['tx']['TransactionType'],$data[$i]['tx']['Amount'],$data[$i]['tx']['Destination'],$data[$i]['tx']['DestinationTag']) && $data[$i]['tx']['Destination'] == $address){
+		echo $i.') Hash---> '.$data[$i]['hash'];
+		echo "<br>";
+		echo $i.') Date---> '.$data[$i]['date'];
+		echo "<br>";
+		echo $i.') Tx Type---> '.$data[$i]['tx']['TransactionType'];
+		echo "<br>";
+		echo $i.') Amount---> '.$data[$i]['tx']['Amount']/1000000;
+		echo "<br>";
+		echo $i.') Destination---> '.$data[$i]['tx']['Destination'];
+		echo "<br>";
+		echo $i.') DestinationTag---> '.$data[$i]['tx']['DestinationTag'];
+		echo "<br>";
+		echo "<br>";
+	}
 }
 //print_r(($data[5]));
 
