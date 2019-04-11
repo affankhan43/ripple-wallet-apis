@@ -30,7 +30,7 @@ if(isset($_POST['msg']) && isset($_POST['key']) && isset($_POST['coin']) && $_PO
 			}
 			$tx_data['latest'] = $data[$i]['date'];
 		}
-		echo json_encode($tx_data);
+		echo json_encode(array("data"=>$tx_data));
 	}
 }
 ?>
