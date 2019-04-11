@@ -14,8 +14,7 @@ use IEXBase\RippleAPI\Support\TransactionType;
 require_once __DIR__.'/vendor/autoload.php';
 require_once __DIR__.'/.env';
 
-$address = $ripple_test;
-$secretKey = "shdefS9eDcFp8rAL8oGPGSqJbGSpg";
+$address = $ripple_address;
 
 $ripple = new \IEXBase\RippleAPI\Ripple($address);
 
