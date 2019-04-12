@@ -26,7 +26,7 @@ if(isset($_POST['msg']) && isset($_POST['key']) && isset($_POST['coin']) && $_PO
 		$tx_data = array("transactions"=>array(),'latest'=>$date);
 		for ($i=0; $i < sizeof($data); $i++) {
 			if(isset($data[$i]['hash'],$data[$i]['date'],$data[$i]['tx']['TransactionType'],$data[$i]['tx']['Amount'],$data[$i]['tx']['Destination'],$data[$i]['tx']['DestinationTag']) && $data[$i]['tx']['Destination'] == $address){
-				$tx_data['transactions'][] = array('txid'=>$data[$i]['hash'],'date'=>$data[$i]['date'],'category'=>'receive',"amount"=>$data[$i]['tx']['Amount']/1000000,"address"=>$data[$i]['tx']['Destination'],"message"=>$data[$i]['tx']['DestinationTag']);
+				$tx_data['transactions'][] = array('txid'=>$data[$i]['hash'],'date'=>$data[$i]['date'],'category'=>'receive',"amount"=>$data[$i]['tx']['Amount'],"address"=>$data[$i]['tx']['Destination'],"message"=>$data[$i]['tx']['DestinationTag'],'confirmations'=>5);
 			}
 			$tx_data['latest'] = $data[$i]['date'];
 		}
